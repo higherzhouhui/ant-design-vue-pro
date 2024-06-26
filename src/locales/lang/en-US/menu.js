@@ -1,6 +1,7 @@
 export default {
     'menu.welcome': 'Welcome',
     'menu.home': 'Home',
+    'menu.member': 'Account Manage',
     'menu.dashboard': 'Dashboard',
     'menu.dashboard.analysis': 'Analysis',
     'menu.dashboard.monitor': 'Monitor',

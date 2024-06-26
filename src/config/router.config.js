@@ -1,6 +1,5 @@
 // eslint-disable-next-line
-import { UserLayout, BasicLayout, BlankLayout } from '@/layouts'
-import { bxAnaalyse } from '@/core/icons'
+import { UserLayout, BasicLayout } from '@/layouts'
 
 const RouteView = {
   name: 'RouteView',
@@ -13,36 +12,133 @@ export const asyncRouterMap = [
     name: 'index',
     component: BasicLayout,
     meta: { title: 'menu.home' },
-    redirect: '/dashboard/workplace',
+    redirect: '/member/index',
     children: [
-      // dashboard
+      // 会员管理
       {
-        path: '/dashboard',
-        name: 'dashboard',
-        redirect: '/dashboard/workplace',
+        path: '/member',
+        name: 'member',
         component: RouteView,
-        meta: { title: 'menu.dashboard', keepAlive: true, icon: bxAnaalyse, permission: ['dashboard'] },
+        redirect: '/member/index',
+        meta: { title: 'menu.member', keepAlive: true, icon: 'team', permission: ['dashboard'] },
+        hideChildrenInMenu: true,
         children: [
           {
-            path: '/dashboard/analysis/:pageNo([1-9]\\d*)?',
-            name: 'Analysis',
-            component: () => import('@/views/dashboard/Analysis'),
-            meta: { title: 'menu.dashboard.analysis', keepAlive: false, permission: ['dashboard'] }
-          },
-          // 外部链接
-          // {
-          //   path: 'https://www.baidu.com/',
-          //   name: 'Monitor',
-          //   meta: { title: 'menu.dashboard.monitor', target: '_blank' }
-          // },
-          {
-            path: '/dashboard/workplace',
-            name: 'Workplace',
-            component: () => import('@/views/dashboard/Workplace'),
-            meta: { title: 'menu.dashboard.workplace', keepAlive: true, permission: ['dashboard'] }
+            path: '/member/index',
+            component: () => import('@/views/member/TableList'),
+            meta: { title: 'menu.member', keepAlive: true, permission: ['dashboard'] },
+            hide: true
           }
         ]
       },
+      {
+        path: '/tax',
+        name: 'tax',
+        component: RouteView,
+        redirect: '/tax/index',
+        meta: { title: 'menu.tax', keepAlive: true, icon: 'transaction', permission: ['dashboard'] },
+        hideChildrenInMenu: true,
+        children: [
+          {
+            path: '/tax/index',
+            component: () => import('@/views/list/TableList'),
+            meta: { title: 'menu.tax', keepAlive: true, permission: ['dashboard'] },
+            hide: true
+          }
+        ]
+      },
+      {
+        path: '/company',
+        name: 'company',
+        component: RouteView,
+        redirect: '/company/index',
+        meta: { title: 'menu.company', keepAlive: true, icon: 'bank', permission: ['dashboard'] },
+        hideChildrenInMenu: true,
+        children: [
+          {
+            path: '/company/index',
+            component: () => import('@/views/list/TableList'),
+            meta: { title: 'menu.company', keepAlive: true, permission: ['dashboard'] },
+            hide: true
+          }
+        ]
+      },
+      {
+        path: '/role',
+        name: 'role',
+        component: RouteView,
+        redirect: '/role/index',
+        meta: { title: 'menu.role', keepAlive: true, icon: 'lock', permission: ['dashboard'] },
+        hideChildrenInMenu: true,
+        children: [
+          {
+            path: '/role/index',
+            component: () => import('@/views/list/TableList'),
+            meta: { title: 'menu.role', keepAlive: true, permission: ['dashboard'] },
+            hide: true
+          }
+        ]
+      },
+      {
+        path: '/people',
+        name: 'people',
+        component: RouteView,
+        redirect: '/people/index',
+        meta: { title: 'menu.people', keepAlive: true, icon: 'user', permission: ['dashboard'] },
+        hideChildrenInMenu: true,
+        children: [
+          {
+            path: '/people/index',
+            component: () => import('@/views/list/TableList'),
+            meta: { title: 'menu.people', keepAlive: true, permission: ['dashboard'] },
+            hide: true
+          }
+        ]
+      },
+      {
+        path: '/system',
+        name: 'system',
+        component: RouteView,
+        redirect: '/system/index',
+        meta: { title: 'menu.system', keepAlive: true, icon: 'snippets', permission: ['dashboard'] },
+        hideChildrenInMenu: true,
+        children: [
+          {
+            path: '/system/index',
+            component: () => import('@/views/list/TableList'),
+            meta: { title: 'menu.system', keepAlive: true, permission: ['dashboard'] },
+            hide: true
+          }
+        ]
+      },
+      // dashboard
+      // {
+      //   path: '/dashboard',
+      //   name: 'dashboard',
+      //   redirect: '/dashboard/workplace',
+      //   component: RouteView,
+      //   meta: { title: 'menu.dashboard', keepAlive: true, icon: bxAnaalyse, permission: ['dashboard'] },
+      //   children: [
+      //     {
+      //       path: '/dashboard/analysis/:pageNo([1-9]\\d*)?',
+      //       name: 'Analysis',
+      //       component: () => import('@/views/dashboard/Analysis'),
+      //       meta: { title: 'menu.dashboard.analysis', keepAlive: false, permission: ['dashboard'] }
+      //     },
+      //     // 外部链接
+      //     // {
+      //     //   path: 'https://www.baidu.com/',
+      //     //   name: 'Monitor',
+      //     //   meta: { title: 'menu.dashboard.monitor', target: '_blank' }
+      //     // },
+      //     {
+      //       path: '/dashboard/workplace',
+      //       name: 'Workplace',
+      //       component: () => import('@/views/dashboard/Workplace'),
+      //       meta: { title: 'menu.dashboard.workplace', keepAlive: true, permission: ['dashboard'] }
+      //     }
+      //   ]
+      // },
       // forms
       {
         path: '/form',

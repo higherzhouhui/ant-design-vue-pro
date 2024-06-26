@@ -1,6 +1,12 @@
 export default {
     'menu.welcome': '欢迎',
     'menu.home': '主页',
+    'menu.member': '会员管理',
+    'menu.tax': '税务申报',
+    'menu.company': '公司管理',
+    'menu.role': '角色管理',
+    'menu.people': '人员管理',
+    'menu.system': '系统日志',
     'menu.dashboard': '仪表盘',
     'menu.dashboard.analysis': '分析页',
     'menu.dashboard.monitor': '监控页',
